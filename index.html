@@ -1295,16 +1295,22 @@ function handleSubmit(e) {
   // Agregar timestamp
   data['Timestamp'] = new Date().toLocaleString('es-GT');
 
-  // Enviar a Google Sheets via Apps Script
-  fetch(SCRIPT_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
-  .then(() => {
-    // Ocultar formulario y mostrar pantalla de confirmación
-    document.getElementById('surveyForm').style.display = 'none';
-    const confirmation = document.getElementById('confirmationScreen');
-    confirmation.style.display = 'flex';
- 
+ // Enviar a Google Sheets via Apps Script
+fetch(SCRIPT_URL, {
+  method: 'POST',
+  mode: 'no-cors',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
+})
+.then(() => {
+  // Ocultar formulario y mostrar pantalla de confirmación
+  document.getElementById('surveyForm').style.display = 'none';
+  const confirmation = document.getElementById('confirmationScreen');
+  confirmation.style.display = 'flex';
+})
+.catch((error) => {
+  console.error('Error:', error);
+  alert('Error al enviar la encuesta. Por favor, intente de nuevo.');
+  btn.textContent = 'Enviar Encuesta';
+  btn.disabled = false;
+});
