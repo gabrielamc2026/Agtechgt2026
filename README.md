@@ -1,1 +1,1 @@
-Esta encuesta explora cómo los productores agrícolas de las cadenas productivas de exportación buscan, evalúan y adoptan herramientas digitales, y qué rol puede jugar una plataforma integradora del ecosistema.
+Esta encuesta explora cómo los productores agrícolas de las cadenas productivas de exportación buscan, evalúan y adoptan herramientas digitales, y qué rol puede jugar una plataforma integradora del ecosistema de Guatemala.
