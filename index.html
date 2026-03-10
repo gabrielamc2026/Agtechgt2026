@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Encuesta AgTech Guatemala 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swapdisplay=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --soil: #0F2E1E;
+    --bark: #1A7A4A;
+    --leaf: #1A7A4A;
+    --sprout: #2EAD6A;
+    --lime: #A8E6C3;
+    --cream: #F0F7F3;
+    --parchment: #A8E6C3;
+    --mist: #F0F7F3;
+    --gold: #2EAD6A;
+    --rust: #1A7A4A;
+    --text: #0F2E1E;
+    --subtle: #6B8F7B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(46,173,106,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 90% 80%, rgba(15,46,30,0.06) 0%, transparent 60%);
+  }
+
+  /* Hero */
+  .hero {
+    background: #ffffff;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 30% 50%, rgba(46,173,106,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 80% 30%, rgba(168,230,195,0.12) 0%, transparent 50%);
+    color: var(--text);
+    padding: 56px 32px 48px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 3px solid var(--sprout);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(46,173,106,0.12);
+    border: 1px solid rgba(46,173,106,0.4);
+    color: var(--leaf);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.1;
+    max-width: 560px;
+    margin-bottom: 18px;
+    color: var(--soil);
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--sprout);
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    color: var(--subtle);
+    max-width: 480px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--subtle);
+  }
+
+  .hero-badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--sprout);
+  }
+
+  /* Progress */
+  .progress-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #ffffff; border-bottom: 1px solid rgba(15,46,30,0.1);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 4px;
+    background: rgba(15,46,30,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sprout), var(--lime));
+    border-radius: 2px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  .progress-label {
+    color: var(--subtle);
+    font-size: 11px;
+    white-space: nowrap;
+    min-width: 80px;
+    text-align: right;
+  }
+
+  /* Sections */
+  .form-wrapper {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  .section-block {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .section-number {
+    width: 40px; height: 40px;
+    background: var(--leaf);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    flex-shrink: 0;
+  }
+
+  .section-title-group h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--soil);
+  }
+
+  .section-title-group p {
+    font-size: 12px;
+    color: var(--subtle);
+    margin-top: 2px;
+  }
+
+  /* Question cards */
+  .q-card {
+    background: #fff;
+    border: 1px solid rgba(15,46,30,0.09);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(15,46,30,0.04);
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .q-card:focus-within {
+    border-color: var(--sprout);
+    box-shadow: 0 4px 16px rgba(46,173,106,0.12);
+  }
+
+  .q-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .q-label .req {
+    color: var(--rust);
+    margin-left: 3px;
+  }
+
+  .q-hint {
+    font-size: 11.5px;
+    color: var(--subtle);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+
+  /* Text inputs */
+  .q-input, .q-textarea, .q-select {
+    width: 100%;
+    border: 1.5px solid rgba(15,46,30,0.15);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13.5px;
+    color: var(--text);
+    background: #ffffff;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+  }
+
+  .q-input:focus, .q-textarea:focus, .q-select:focus {
+    border-color: var(--sprout);
+    background: #fff;
+  }
+
+  .q-textarea { resize: vertical; min-height: 90px; }
+
+  .q-select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+  }
+
+  /* Radio & Checkbox options */
+  .options-grid {
+    display: grid;
+    gap: 8px;
+  }
+
+  .options-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+  .options-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .opt-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 11px 14px;
+    border: 1.5px solid rgba(15,46,30,0.12);
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .opt-label:hover { background: #fff; border-color: var(--sprout); }
+
+  .opt-label input { display: none; }
+
+  .opt-label input:checked ~ .opt-box { background: var(--sprout); border-color: var(--sprout); }
+  .opt-label input:checked ~ .opt-box::after { opacity: 1; }
+  .opt-label:has(input:checked) { background: rgba(46,173,106,0.08); border-color: var(--sprout); }
+
+  .opt-box {
+    width: 18px; height: 18px;
+    border: 2px solid rgba(15,46,30,0.25);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .opt-box.sq { border-radius: 4px; }
+
+  .opt-box::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7px; height: 7px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .opt-box.sq::after {
+    width: 9px; height: 7px;
+    border-radius: 0;
+    background: transparent;
+    border: 2px solid #fff;
+    border-top: none; border-right: none;
+    transform: translate(-50%, -60%) rotate(-45deg);
+    opacity: 0;
+  }
+
+  /* Scale/Likert */
+  .scale-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .scale-item { display: flex; flex-direction: column; align-items: center; gap: 5px; flex: 1; min-width: 40px; }
+
+  .scale-item label {
+    width: 36px; height: 36px;
+    border: 1.5px solid rgba(15,46,30,0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #ffffff;
+    transition: all 0.15s;
+    color: var(--subtle);
+  }
+
+  .scale-item input { display: none; }
+  .scale-item:has(input:checked) label { background: var(--sprout); border-color: var(--sprout); color: #fff; }
+  .scale-item label:hover { border-color: var(--sprout); color: var(--sprout); }
+
+  .scale-labels { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--subtle); margin-top: 4px; }
+
+  /* Ranking */
+  .rank-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    background: #fff;
+    border: 1.5px solid rgba(15,46,30,0.1);
+    border-radius: 9px;
+    margin-bottom: 7px;
+    cursor: grab;
+    transition: box-shadow 0.15s;
+    font-size: 13px;
+  }
+
+  .rank-item:hover { box-shadow: 0 3px 10px rgba(15,46,30,0.08); }
+
+  .rank-num {
+    width: 26px; height: 26px;
+    background: var(--parchment);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: var(--bark);
+    flex-shrink: 0;
+  }
+
+  .drag-handle { color: rgba(15,46,30,0.25); font-size: 14px; flex-shrink: 0; }
+
+  /* Matrix table */
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .matrix-table th {
+    background: var(--leaf);
+    color: var(--cream);
+    font-weight: 600;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 11px;
+  }
+  .matrix-table th:first-child { text-align: left; padding-left: 14px; border-radius: 8px 0 0 0; }
+  .matrix-table th:last-child { border-radius: 0 8px 0 0; }
+  .matrix-table td { padding: 10px 8px; border-bottom: 1px solid rgba(15,46,30,0.07); text-align: center; }
+  .matrix-table td:first-child { text-align: left; padding-left: 14px; font-weight: 500; color: var(--text); }
+  .matrix-table tr:nth-child(even) td { background: rgba(240,247,243,0.8); }
+  .matrix-table tr:hover td { background: rgba(46,173,106,0.07); }
+  .matrix-table input[type="radio"] { accent-color: var(--sprout); width: 16px; height: 16px; cursor: pointer; }
+
+  /* Submit */
+  .submit-section {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .btn-submit {
+    background: var(--leaf);
+    color: var(--cream);
+    border: none;
+    padding: 16px 48px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 16px rgba(26,122,74,0.3);
+  }
+
+  .btn-submit:hover {
+    background: var(--sprout);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26,122,74,0.35);
+  }
+
+  /* Pantalla de confirmación */
+  .confirmation-screen {
+    display: none;
+    min-height: 80vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 32px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .confirmation-icon {
+    width: 90px;
+    height: 90px;
+    background: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    font-size: 40px;
+    border: 3px solid var(--sprout);
+  }
+  .confirmation-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--soil);
+    margin-bottom: 16px;
+  }
+  .confirmation-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: var(--subtle);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  .confirmation-highlight {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: var(--leaf);
+    font-weight: 500;
+    background: var(--cream);
+    padding: 14px 24px;
+    border-radius: 10px;
+    margin-top: 16px;
+    border-left: 4px solid var(--sprout);
+    text-align: left;
+    line-height: 1.7;
+  }
+
+  /* Divider */
+  .divider { border: none; border-top: 1px solid rgba(15,46,30,0.1); margin: 32px 0; }
+
+  /* Optional tag */
+  .opt-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--subtle);
+    border: 1px solid rgba(15,46,30,0.2);
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+  }
+
+  /* New badge */
+  .new-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--rust);
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .options-grid.cols-2, .options-grid.cols-3 { grid-template-columns: 1fr; }
+    .hero { padding: 40px 20px 36px; }
+    .q-card { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div style="margin-bottom: 24px; display:flex; align-items:center; gap:14px;">
+      <img src="data:image/png;base64,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" alt="AGEXPORT" style="height: 44px; width: auto;"/>
+      <div style="display:flex; flex-direction:column; line-height:1.1;">
+        <span style="font-family:'Roboto',sans-serif; font-weight:700; font-size:20px; color:#0F2E1E; letter-spacing:1px;">AGEXPORT</span>
+        <span style="font-family:'Roboto',sans-serif; font-weight:400; font-size:13px; color:#1A7A4A; letter-spacing:2px; text-transform:uppercase;">Agrícola</span>
+      </div>
+    </div>
+    <div class="hero-tag">Encuesta Marzo 2026 · Versión 2.0</div>
+  <h1>Adopción de <em>Tecnologías Digitales</em> en la Agricultura Exportadora</h1>
+  <p class="hero-sub">Esta encuesta explora cómo los productores agrícolas de las cadenas productivas de exportación buscan, evalúan y adoptan herramientas digitales, y qué rol puede jugar una plataforma integradora del ecosistema.</p>
+  <div class="hero-meta">
+    <span class="hero-badge"><span class="hero-badge-dot"></span>Dirigida a organizaciones proveedoras de tecnología agropecuaria</span>
+    <span class="hero-badge"><span class="hero-badge-dot"></span>~20 minutos</span>
+    <span class="hero-badge"><span class="hero-badge-dot"></span>Respuestas confidenciales</span>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar">
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label" id="progressLabel">0 / 40</div>
+</div>
+
+<div class="form-wrapper">
+<form id="surveyForm" onsubmit="handleSubmit(event)">
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN A — PERFIL DE LA ORGANIZACIÓN (herencia del original)
+     ══════════════════════════════════════════════════════════════ -->
+<div class="section-block">
+  <div class="section-header">
+    <div class="section-number">A</div>
+    <div class="section-title-group">
+      <h2>Perfil de la Organización</h2>
+      <p>Información básica — heredada y actualizada del formulario original</p>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">1. Nombre de la organización <span class="req">*</span></div>
+    <input class="q-input" type="text" placeholder="Nombre completo de su organización" required/>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">2. Ubicación donde opera principalmente <span class="req">*</span></div>
+    <div style="display:grid; gap:10px;">
+      <div>
+        <div style="font-size:12px; font-weight:600; color:var(--subtle); margin-bottom:5px;">Departamento</div>
+        <select class="q-select" id="deptoSelect">
+          <option value="">Seleccione un departamento</option>
+          <option>Alta Verapaz</option>
+          <option>Baja Verapaz</option>
+          <option>Chimaltenango</option>
+          <option>Chiquimula</option>
+          <option>El Progreso</option>
+          <option>Escuintla</option>
+          <option>Guatemala</option>
+          <option>Huehuetenango</option>
+          <option>Izabal</option>
+          <option>Jalapa</option>
+          <option>Jutiapa</option>
+          <option>Petén</option>
+          <option>Quetzaltenango</option>
+          <option>Quiché</option>
+          <option>Retalhuleu</option>
+          <option>Sacatepéquez</option>
+          <option>San Marcos</option>
+          <option>Santa Rosa</option>
+          <option>Sololá</option>
+          <option>Suchitepéquez</option>
+          <option>Totonicapán</option>
+          <option>Zacapa</option>
+          <option>A nivel nacional</option>
+        </select>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:600; color:var(--subtle); margin-bottom:5px;">Municipio</div>
+        <select class="q-select" id="municipioSelect">
+          <option value="">— Seleccione primero un departamento —</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">3. Sector de actividad económica <span class="req">*</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="radio" name="sector"/><span class="opt-box"></span>Emprendimiento / Startup</label>
+      <label class="opt-label"><input type="radio" name="sector"/><span class="opt-box"></span>Empresa privada local</label>
+      <label class="opt-label"><input type="radio" name="sector"/><span class="opt-box"></span>Empresa multinacional</label>
+      <label class="opt-label"><input type="radio" name="sector"/><span class="opt-box"></span>Asociación de productores</label>
+      <label class="opt-label"><input type="radio" name="sector"/><span class="opt-box"></span>Institución de I+D</label>
+      <label class="opt-label"><input type="radio" name="sector"/><span class="opt-box"></span>Cooperación internacional</label>
+      <label class="opt-label"><input type="radio" name="sector"/><span class="opt-box"></span>Gobierno / institución pública</label>
+      <label class="opt-label"><input type="radio" name="sector"/><span class="opt-box"></span>Otro</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">4. Número aproximado de productores agrícolas que su organización atiende directa o indirectamente <span class="req">*</span></div>
+    <select class="q-select">
+      <option value="">Seleccione un rango</option>
+      <option>Menos de 50</option>
+      <option>50 – 200</option>
+      <option>201 – 500</option>
+      <option>501 – 2,000</option>
+      <option>2,001 – 10,000</option>
+      <option>Más de 10,000</option>
+      <option>No aplica / aún sin clientes</option>
+    </select>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">5. Tipos de cultivos o cadenas agrícolas con los que trabaja principalmente <span class="opt-tag">múltiple</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Café</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Frutas (Berries)</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Aguacate</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Mango</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Vegetales / Hortalizas</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Cardamomo</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Cacao</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Plantas Ornamentales</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Agricultura en General</label>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN B — CÓMO BUSCAN TECNOLOGÍA LOS PRODUCTORES ★ NUEVA
+     ══════════════════════════════════════════════════════════════ -->
+<div class="section-block">
+  <div class="section-header">
+    <div class="section-number">B</div>
+    <div class="section-title-group">
+      <h2>Cómo Buscan Tecnología los Productores <span class="new-badge">Nuevo</span></h2>
+      <p>Basado en su experiencia trabajando con productores</p>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">6. ¿Con qué frecuencia y efectividad utilizan los productores que usted atiende los siguientes canales para buscar información sobre nuevas tecnologías agrícolas? <span class="req">*</span></div>
+    <p class="q-hint">Frecuencia: 1 = Nunca · 5 = Siempre &nbsp;|&nbsp; Efectividad: 1 = Poco efectivo · 5 = Muy efectivo</p>
+    <div style="overflow-x:auto;">
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Canal</th>
+          <th colspan="5" style="border-right: 2px solid rgba(255,255,255,0.3);">Frecuencia de uso</th>
+          <th colspan="5">Efectividad</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>1</th><th>2</th><th>3</th><th>4</th><th style="border-right: 2px solid rgba(255,255,255,0.3);">5</th>
+          <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Recomendación de otros productores (boca a boca)</td><td><input type="radio" name="f_q6r1" value="1"/></td><td><input type="radio" name="f_q6r1" value="2"/></td><td><input type="radio" name="f_q6r1" value="3"/></td><td><input type="radio" name="f_q6r1" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r1" value="5"/></td><td><input type="radio" name="e_q6r1" value="1"/></td><td><input type="radio" name="e_q6r1" value="2"/></td><td><input type="radio" name="e_q6r1" value="3"/></td><td><input type="radio" name="e_q6r1" value="4"/></td><td><input type="radio" name="e_q6r1" value="5"/></td></tr>
+        <tr><td>Técnico agrícola de campo</td><td><input type="radio" name="f_q6r2" value="1"/></td><td><input type="radio" name="f_q6r2" value="2"/></td><td><input type="radio" name="f_q6r2" value="3"/></td><td><input type="radio" name="f_q6r2" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r2" value="5"/></td><td><input type="radio" name="e_q6r2" value="1"/></td><td><input type="radio" name="e_q6r2" value="2"/></td><td><input type="radio" name="e_q6r2" value="3"/></td><td><input type="radio" name="e_q6r2" value="4"/></td><td><input type="radio" name="e_q6r2" value="5"/></td></tr>
+        <tr><td>Ferias / eventos agrícolas</td><td><input type="radio" name="f_q6r3" value="1"/></td><td><input type="radio" name="f_q6r3" value="2"/></td><td><input type="radio" name="f_q6r3" value="3"/></td><td><input type="radio" name="f_q6r3" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r3" value="5"/></td><td><input type="radio" name="e_q6r3" value="1"/></td><td><input type="radio" name="e_q6r3" value="2"/></td><td><input type="radio" name="e_q6r3" value="3"/></td><td><input type="radio" name="e_q6r3" value="4"/></td><td><input type="radio" name="e_q6r3" value="5"/></td></tr>
+        <tr><td>WhatsApp / grupos de mensajería</td><td><input type="radio" name="f_q6r4" value="1"/></td><td><input type="radio" name="f_q6r4" value="2"/></td><td><input type="radio" name="f_q6r4" value="3"/></td><td><input type="radio" name="f_q6r4" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r4" value="5"/></td><td><input type="radio" name="e_q6r4" value="1"/></td><td><input type="radio" name="e_q6r4" value="2"/></td><td><input type="radio" name="e_q6r4" value="3"/></td><td><input type="radio" name="e_q6r4" value="4"/></td><td><input type="radio" name="e_q6r4" value="5"/></td></tr>
+        <tr><td>Facebook / Instagram</td><td><input type="radio" name="f_q6r5" value="1"/></td><td><input type="radio" name="f_q6r5" value="2"/></td><td><input type="radio" name="f_q6r5" value="3"/></td><td><input type="radio" name="f_q6r5" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r5" value="5"/></td><td><input type="radio" name="e_q6r5" value="1"/></td><td><input type="radio" name="e_q6r5" value="2"/></td><td><input type="radio" name="e_q6r5" value="3"/></td><td><input type="radio" name="e_q6r5" value="4"/></td><td><input type="radio" name="e_q6r5" value="5"/></td></tr>
+        <tr><td>YouTube / videos</td><td><input type="radio" name="f_q6r6" value="1"/></td><td><input type="radio" name="f_q6r6" value="2"/></td><td><input type="radio" name="f_q6r6" value="3"/></td><td><input type="radio" name="f_q6r6" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r6" value="5"/></td><td><input type="radio" name="e_q6r6" value="1"/></td><td><input type="radio" name="e_q6r6" value="2"/></td><td><input type="radio" name="e_q6r6" value="3"/></td><td><input type="radio" name="e_q6r6" value="4"/></td><td><input type="radio" name="e_q6r6" value="5"/></td></tr>
+        <tr><td>Búsqueda en Google</td><td><input type="radio" name="f_q6r7" value="1"/></td><td><input type="radio" name="f_q6r7" value="2"/></td><td><input type="radio" name="f_q6r7" value="3"/></td><td><input type="radio" name="f_q6r7" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r7" value="5"/></td><td><input type="radio" name="e_q6r7" value="1"/></td><td><input type="radio" name="e_q6r7" value="2"/></td><td><input type="radio" name="e_q6r7" value="3"/></td><td><input type="radio" name="e_q6r7" value="4"/></td><td><input type="radio" name="e_q6r7" value="5"/></td></tr>
+        <tr><td>Proveedor de insumos agrícolas</td><td><input type="radio" name="f_q6r8" value="1"/></td><td><input type="radio" name="f_q6r8" value="2"/></td><td><input type="radio" name="f_q6r8" value="3"/></td><td><input type="radio" name="f_q6r8" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r8" value="5"/></td><td><input type="radio" name="e_q6r8" value="1"/></td><td><input type="radio" name="e_q6r8" value="2"/></td><td><input type="radio" name="e_q6r8" value="3"/></td><td><input type="radio" name="e_q6r8" value="4"/></td><td><input type="radio" name="e_q6r8" value="5"/></td></tr>
+        <tr><td>Cooperativa o asociación</td><td><input type="radio" name="f_q6r9" value="1"/></td><td><input type="radio" name="f_q6r9" value="2"/></td><td><input type="radio" name="f_q6r9" value="3"/></td><td><input type="radio" name="f_q6r9" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r9" value="5"/></td><td><input type="radio" name="e_q6r9" value="1"/></td><td><input type="radio" name="e_q6r9" value="2"/></td><td><input type="radio" name="e_q6r9" value="3"/></td><td><input type="radio" name="e_q6r9" value="4"/></td><td><input type="radio" name="e_q6r9" value="5"/></td></tr>
+        <tr><td>Radio / televisión</td><td><input type="radio" name="f_q6r10" value="1"/></td><td><input type="radio" name="f_q6r10" value="2"/></td><td><input type="radio" name="f_q6r10" value="3"/></td><td><input type="radio" name="f_q6r10" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r10" value="5"/></td><td><input type="radio" name="e_q6r10" value="1"/></td><td><input type="radio" name="e_q6r10" value="2"/></td><td><input type="radio" name="e_q6r10" value="3"/></td><td><input type="radio" name="e_q6r10" value="4"/></td><td><input type="radio" name="e_q6r10" value="5"/></td></tr>
+        <tr><td>Programas de gobierno (MAGA, SENACYT)</td><td><input type="radio" name="f_q6r11" value="1"/></td><td><input type="radio" name="f_q6r11" value="2"/></td><td><input type="radio" name="f_q6r11" value="3"/></td><td><input type="radio" name="f_q6r11" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q6r11" value="5"/></td><td><input type="radio" name="e_q6r11" value="1"/></td><td><input type="radio" name="e_q6r11" value="2"/></td><td><input type="radio" name="e_q6r11" value="3"/></td><td><input type="radio" name="e_q6r11" value="4"/></td><td><input type="radio" name="e_q6r11" value="5"/></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">7. ¿En qué momento del ciclo productivo los productores suelen estar MÁS receptivos a adoptar nuevas tecnologías? <span class="req">*</span></div>
+    <div class="options-grid">
+      <label class="opt-label"><input type="radio" name="timing"/><span class="opt-box"></span>Durante la planificación (antes de la siembra)</label>
+      <label class="opt-label"><input type="radio" name="timing"/><span class="opt-box"></span>Después de una mala cosecha o pérdida significativa</label>
+      <label class="opt-label"><input type="radio" name="timing"/><span class="opt-box"></span>Cuando ven resultados positivos en otro productor</label>
+      <label class="opt-label"><input type="radio" name="timing"/><span class="opt-box"></span>Cuando reciben financiamiento o asistencia técnica</label>
+      <label class="opt-label"><input type="radio" name="timing"/><span class="opt-box"></span>No hay un momento específico, es oportunístico</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">8. ¿Cómo describiría el nivel de búsqueda activa de tecnología digital por parte de los productores que usted atiende? <span class="req">*</span></div>
+    <div class="scale-row">
+      <div style="font-size:12px; color:var(--subtle); min-width:80px;">Pasiva (espera)</div>
+      <div class="scale-item"><input type="radio" name="searchLevel" value="1"/><label>1</label></div>
+      <div class="scale-item"><input type="radio" name="searchLevel" value="2"/><label>2</label></div>
+      <div class="scale-item"><input type="radio" name="searchLevel" value="3"/><label>3</label></div>
+      <div class="scale-item"><input type="radio" name="searchLevel" value="4"/><label>4</label></div>
+      <div class="scale-item"><input type="radio" name="searchLevel" value="5"/><label>5</label></div>
+      <div style="font-size:12px; color:var(--subtle); min-width:80px; text-align:right;">Activa (busca)</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN C — INVERSIÓN EN TECNOLOGÍAS ★ NUEVA
+     ══════════════════════════════════════════════════════════════ -->
+<div class="section-block">
+  <div class="section-header">
+    <div class="section-number">C</div>
+    <div class="section-title-group">
+      <h2>Inversión de Productores en Tecnología <span class="new-badge">Nuevo</span></h2>
+      <p>Patrones de gasto y tipos de tecnología que los productores están adquiriendo</p>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">9. ¿En qué tipos de tecnología digital están invirtiendo actualmente los productores que usted atiende? <span class="opt-tag">múltiple</span> <span class="req">*</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Apps móviles agrícolas (clima, precios, etc.)</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Sensores de suelo / humedad / clima</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Drones (fumigación, imágenes)</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Software de gestión de finca</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>GPS y georeferenciación</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Sistemas de riego tecnificado</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Plataformas de trazabilidad</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Herramientas de comercialización digital</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>IA Generativa (ChatGPT, Gemini)</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Ninguna por el momento</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">10. ¿Cuánto invierten aproximadamente los productores en tecnología digital por año (por unidad productiva)? <span class="req">*</span></div>
+    <p class="q-hint">📌 <em>Una unidad productiva agrícola es una unidad económica que combina tierra, recursos y mano de obra.</em></p>
+    <div class="options-grid">
+      <label class="opt-label"><input type="radio" name="invest"/><span class="opt-box"></span>No invierten / no tienen presupuesto para eso</label>
+      <label class="opt-label"><input type="radio" name="invest"/><span class="opt-box"></span>Menos de Q500 (~US$65)</label>
+      <label class="opt-label"><input type="radio" name="invest"/><span class="opt-box"></span>Q500 – Q2,000 (US$65–260)</label>
+      <label class="opt-label"><input type="radio" name="invest"/><span class="opt-box"></span>Q2,001 – Q10,000 (US$261–1,300)</label>
+      <label class="opt-label"><input type="radio" name="invest"/><span class="opt-box"></span>Q10,001 – Q20,000 (US$1,301–2,600)</label>
+      <label class="opt-label"><input type="radio" name="invest"/><span class="opt-box"></span>Q20,001 – Q29,999 (US$2,601–3,899)</label>
+      <label class="opt-label"><input type="radio" name="invest"/><span class="opt-box"></span>Q30,000 – Q50,000 (US$3,900–6,500)</label>
+      <label class="opt-label"><input type="radio" name="invest"/><span class="opt-box"></span>Más de Q50,000 (más de US$6,500)</label>
+      <label class="opt-label"><input type="radio" name="invest"/><span class="opt-box"></span>No tengo datos suficientes para responder</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">11. ¿Cómo financian los productores la adopción de nuevas tecnologías? <span class="opt-tag">múltiple</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Recursos propios / ahorro</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Crédito formal (banco / cooperativa)</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Subsidio de proyecto de cooperación</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Subsidio del gobierno</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Financiamiento del proveedor tecnológico</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>No tienen acceso a financiamiento</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">12. Comparando 2023 con 2024, la inversión de sus productores en tecnología digital ha:</div>
+    <div class="options-grid">
+      <label class="opt-label"><input type="radio" name="investTrend"/><span class="opt-box"></span>📈 Aumentado significativamente</label>
+      <label class="opt-label"><input type="radio" name="investTrend"/><span class="opt-box"></span>↗ Aumentado levemente</label>
+      <label class="opt-label"><input type="radio" name="investTrend"/><span class="opt-box"></span>→ Se ha mantenido igual</label>
+      <label class="opt-label"><input type="radio" name="investTrend"/><span class="opt-box"></span>↘ Disminuido</label>
+      <label class="opt-label"><input type="radio" name="investTrend"/><span class="opt-box"></span>No tengo datos comparativos</label>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN D — BARRERAS Y MOTIVADORES ★ NUEVA
+     ══════════════════════════════════════════════════════════════ -->
+<div class="section-block">
+  <div class="section-header">
+    <div class="section-number">D</div>
+    <div class="section-title-group">
+      <h2>Barreras y Motivadores para Adoptar Tecnología <span class="new-badge">Nuevo</span></h2>
+      <p>Qué frena y qué impulsa la decisión de adoptar herramientas digitales</p>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">13. Indique las herramientas digitales que su organización desarrolla y promueve en Guatemala, señalando la frecuencia y efectividad con que las promueve <span class="req">*</span></div>
+    <p class="q-hint">Frecuencia: 1 = Nunca · 5 = Siempre &nbsp;|&nbsp; Efectividad: 1 = Poco efectivo · 5 = Muy efectivo</p>
+    <div style="overflow-x:auto;">
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Herramienta digital</th>
+          <th colspan="5" style="border-right: 2px solid rgba(255,255,255,0.3);">Frecuencia de uso</th>
+          <th colspan="5">Efectividad</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>1</th><th>2</th><th>3</th><th>4</th><th style="border-right: 2px solid rgba(255,255,255,0.3);">5</th>
+          <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Redes Sociales</td><td><input type="radio" name="f_t1" value="1"/></td><td><input type="radio" name="f_t1" value="2"/></td><td><input type="radio" name="f_t1" value="3"/></td><td><input type="radio" name="f_t1" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t1" value="5"/></td><td><input type="radio" name="e_t1" value="1"/></td><td><input type="radio" name="e_t1" value="2"/></td><td><input type="radio" name="e_t1" value="3"/></td><td><input type="radio" name="e_t1" value="4"/></td><td><input type="radio" name="e_t1" value="5"/></td></tr>
+        <tr><td>Marketing digital</td><td><input type="radio" name="f_t2" value="1"/></td><td><input type="radio" name="f_t2" value="2"/></td><td><input type="radio" name="f_t2" value="3"/></td><td><input type="radio" name="f_t2" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t2" value="5"/></td><td><input type="radio" name="e_t2" value="1"/></td><td><input type="radio" name="e_t2" value="2"/></td><td><input type="radio" name="e_t2" value="3"/></td><td><input type="radio" name="e_t2" value="4"/></td><td><input type="radio" name="e_t2" value="5"/></td></tr>
+        <tr><td>Sitios web</td><td><input type="radio" name="f_t3" value="1"/></td><td><input type="radio" name="f_t3" value="2"/></td><td><input type="radio" name="f_t3" value="3"/></td><td><input type="radio" name="f_t3" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t3" value="5"/></td><td><input type="radio" name="e_t3" value="1"/></td><td><input type="radio" name="e_t3" value="2"/></td><td><input type="radio" name="e_t3" value="3"/></td><td><input type="radio" name="e_t3" value="4"/></td><td><input type="radio" name="e_t3" value="5"/></td></tr>
+        <tr><td>Gestión de plataformas de comercio electrónico</td><td><input type="radio" name="f_t4" value="1"/></td><td><input type="radio" name="f_t4" value="2"/></td><td><input type="radio" name="f_t4" value="3"/></td><td><input type="radio" name="f_t4" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t4" value="5"/></td><td><input type="radio" name="e_t4" value="1"/></td><td><input type="radio" name="e_t4" value="2"/></td><td><input type="radio" name="e_t4" value="3"/></td><td><input type="radio" name="e_t4" value="4"/></td><td><input type="radio" name="e_t4" value="5"/></td></tr>
+        <tr><td>Habilitación de pagos digitales</td><td><input type="radio" name="f_t5" value="1"/></td><td><input type="radio" name="f_t5" value="2"/></td><td><input type="radio" name="f_t5" value="3"/></td><td><input type="radio" name="f_t5" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t5" value="5"/></td><td><input type="radio" name="e_t5" value="1"/></td><td><input type="radio" name="e_t5" value="2"/></td><td><input type="radio" name="e_t5" value="3"/></td><td><input type="radio" name="e_t5" value="4"/></td><td><input type="radio" name="e_t5" value="5"/></td></tr>
+        <tr><td>Servicios de banca en línea</td><td><input type="radio" name="f_t6" value="1"/></td><td><input type="radio" name="f_t6" value="2"/></td><td><input type="radio" name="f_t6" value="3"/></td><td><input type="radio" name="f_t6" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t6" value="5"/></td><td><input type="radio" name="e_t6" value="1"/></td><td><input type="radio" name="e_t6" value="2"/></td><td><input type="radio" name="e_t6" value="3"/></td><td><input type="radio" name="e_t6" value="4"/></td><td><input type="radio" name="e_t6" value="5"/></td></tr>
+        <tr><td>Análisis de visitantes y usuarios en línea</td><td><input type="radio" name="f_t7" value="1"/></td><td><input type="radio" name="f_t7" value="2"/></td><td><input type="radio" name="f_t7" value="3"/></td><td><input type="radio" name="f_t7" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t7" value="5"/></td><td><input type="radio" name="e_t7" value="1"/></td><td><input type="radio" name="e_t7" value="2"/></td><td><input type="radio" name="e_t7" value="3"/></td><td><input type="radio" name="e_t7" value="4"/></td><td><input type="radio" name="e_t7" value="5"/></td></tr>
+        <tr><td>Blockchain</td><td><input type="radio" name="f_t8" value="1"/></td><td><input type="radio" name="f_t8" value="2"/></td><td><input type="radio" name="f_t8" value="3"/></td><td><input type="radio" name="f_t8" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t8" value="5"/></td><td><input type="radio" name="e_t8" value="1"/></td><td><input type="radio" name="e_t8" value="2"/></td><td><input type="radio" name="e_t8" value="3"/></td><td><input type="radio" name="e_t8" value="4"/></td><td><input type="radio" name="e_t8" value="5"/></td></tr>
+        <tr><td>Captura y análisis de imágenes digitales (satelital, drones)</td><td><input type="radio" name="f_t9" value="1"/></td><td><input type="radio" name="f_t9" value="2"/></td><td><input type="radio" name="f_t9" value="3"/></td><td><input type="radio" name="f_t9" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t9" value="5"/></td><td><input type="radio" name="e_t9" value="1"/></td><td><input type="radio" name="e_t9" value="2"/></td><td><input type="radio" name="e_t9" value="3"/></td><td><input type="radio" name="e_t9" value="4"/></td><td><input type="radio" name="e_t9" value="5"/></td></tr>
+        <tr><td>Gestión de datos (arquitectura e interoperabilidad)</td><td><input type="radio" name="f_t10" value="1"/></td><td><input type="radio" name="f_t10" value="2"/></td><td><input type="radio" name="f_t10" value="3"/></td><td><input type="radio" name="f_t10" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t10" value="5"/></td><td><input type="radio" name="e_t10" value="1"/></td><td><input type="radio" name="e_t10" value="2"/></td><td><input type="radio" name="e_t10" value="3"/></td><td><input type="radio" name="e_t10" value="4"/></td><td><input type="radio" name="e_t10" value="5"/></td></tr>
+        <tr><td>CRM (gestión de relación con clientes)</td><td><input type="radio" name="f_t11" value="1"/></td><td><input type="radio" name="f_t11" value="2"/></td><td><input type="radio" name="f_t11" value="3"/></td><td><input type="radio" name="f_t11" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t11" value="5"/></td><td><input type="radio" name="e_t11" value="1"/></td><td><input type="radio" name="e_t11" value="2"/></td><td><input type="radio" name="e_t11" value="3"/></td><td><input type="radio" name="e_t11" value="4"/></td><td><input type="radio" name="e_t11" value="5"/></td></tr>
+        <tr><td>Software de gestión de inventarios</td><td><input type="radio" name="f_t12" value="1"/></td><td><input type="radio" name="f_t12" value="2"/></td><td><input type="radio" name="f_t12" value="3"/></td><td><input type="radio" name="f_t12" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t12" value="5"/></td><td><input type="radio" name="e_t12" value="1"/></td><td><input type="radio" name="e_t12" value="2"/></td><td><input type="radio" name="e_t12" value="3"/></td><td><input type="radio" name="e_t12" value="4"/></td><td><input type="radio" name="e_t12" value="5"/></td></tr>
+        <tr><td>Maquinaria automatizada y robótica</td><td><input type="radio" name="f_t13" value="1"/></td><td><input type="radio" name="f_t13" value="2"/></td><td><input type="radio" name="f_t13" value="3"/></td><td><input type="radio" name="f_t13" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t13" value="5"/></td><td><input type="radio" name="e_t13" value="1"/></td><td><input type="radio" name="e_t13" value="2"/></td><td><input type="radio" name="e_t13" value="3"/></td><td><input type="radio" name="e_t13" value="4"/></td><td><input type="radio" name="e_t13" value="5"/></td></tr>
+        <tr><td>Machine Learning / Inteligencia Artificial</td><td><input type="radio" name="f_t14" value="1"/></td><td><input type="radio" name="f_t14" value="2"/></td><td><input type="radio" name="f_t14" value="3"/></td><td><input type="radio" name="f_t14" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t14" value="5"/></td><td><input type="radio" name="e_t14" value="1"/></td><td><input type="radio" name="e_t14" value="2"/></td><td><input type="radio" name="e_t14" value="3"/></td><td><input type="radio" name="e_t14" value="4"/></td><td><input type="radio" name="e_t14" value="5"/></td></tr>
+        <tr><td>Financiación colectiva (crowdfunding)</td><td><input type="radio" name="f_t17" value="1"/></td><td><input type="radio" name="f_t17" value="2"/></td><td><input type="radio" name="f_t17" value="3"/></td><td><input type="radio" name="f_t17" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t17" value="5"/></td><td><input type="radio" name="e_t17" value="1"/></td><td><input type="radio" name="e_t17" value="2"/></td><td><input type="radio" name="e_t17" value="3"/></td><td><input type="radio" name="e_t17" value="4"/></td><td><input type="radio" name="e_t17" value="5"/></td></tr>
+        <tr><td>Servicios de computación en la nube (Cloud)</td><td><input type="radio" name="f_t18" value="1"/></td><td><input type="radio" name="f_t18" value="2"/></td><td><input type="radio" name="f_t18" value="3"/></td><td><input type="radio" name="f_t18" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t18" value="5"/></td><td><input type="radio" name="e_t18" value="1"/></td><td><input type="radio" name="e_t18" value="2"/></td><td><input type="radio" name="e_t18" value="3"/></td><td><input type="radio" name="e_t18" value="4"/></td><td><input type="radio" name="e_t18" value="5"/></td></tr>
+        <tr><td>Plataformas de gestión logística</td><td><input type="radio" name="f_t19" value="1"/></td><td><input type="radio" name="f_t19" value="2"/></td><td><input type="radio" name="f_t19" value="3"/></td><td><input type="radio" name="f_t19" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t19" value="5"/></td><td><input type="radio" name="e_t19" value="1"/></td><td><input type="radio" name="e_t19" value="2"/></td><td><input type="radio" name="e_t19" value="3"/></td><td><input type="radio" name="e_t19" value="4"/></td><td><input type="radio" name="e_t19" value="5"/></td></tr>
+        <tr><td>Automatización</td><td><input type="radio" name="f_t20" value="1"/></td><td><input type="radio" name="f_t20" value="2"/></td><td><input type="radio" name="f_t20" value="3"/></td><td><input type="radio" name="f_t20" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t20" value="5"/></td><td><input type="radio" name="e_t20" value="1"/></td><td><input type="radio" name="e_t20" value="2"/></td><td><input type="radio" name="e_t20" value="3"/></td><td><input type="radio" name="e_t20" value="4"/></td><td><input type="radio" name="e_t20" value="5"/></td></tr>
+        <tr><td>Aplicaciones de aprendizaje en línea</td><td><input type="radio" name="f_t21" value="1"/></td><td><input type="radio" name="f_t21" value="2"/></td><td><input type="radio" name="f_t21" value="3"/></td><td><input type="radio" name="f_t21" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t21" value="5"/></td><td><input type="radio" name="e_t21" value="1"/></td><td><input type="radio" name="e_t21" value="2"/></td><td><input type="radio" name="e_t21" value="3"/></td><td><input type="radio" name="e_t21" value="4"/></td><td><input type="radio" name="e_t21" value="5"/></td></tr>
+        <tr><td>Plataformas de empleo en línea</td><td><input type="radio" name="f_t22" value="1"/></td><td><input type="radio" name="f_t22" value="2"/></td><td><input type="radio" name="f_t22" value="3"/></td><td><input type="radio" name="f_t22" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t22" value="5"/></td><td><input type="radio" name="e_t22" value="1"/></td><td><input type="radio" name="e_t22" value="2"/></td><td><input type="radio" name="e_t22" value="3"/></td><td><input type="radio" name="e_t22" value="4"/></td><td><input type="radio" name="e_t22" value="5"/></td></tr>
+        <tr><td>Chatbots y herramientas de servicio al cliente</td><td><input type="radio" name="f_t23" value="1"/></td><td><input type="radio" name="f_t23" value="2"/></td><td><input type="radio" name="f_t23" value="3"/></td><td><input type="radio" name="f_t23" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t23" value="5"/></td><td><input type="radio" name="e_t23" value="1"/></td><td><input type="radio" name="e_t23" value="2"/></td><td><input type="radio" name="e_t23" value="3"/></td><td><input type="radio" name="e_t23" value="4"/></td><td><input type="radio" name="e_t23" value="5"/></td></tr>
+        <tr><td>Software para gestión financiera</td><td><input type="radio" name="f_t24" value="1"/></td><td><input type="radio" name="f_t24" value="2"/></td><td><input type="radio" name="f_t24" value="3"/></td><td><input type="radio" name="f_t24" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t24" value="5"/></td><td><input type="radio" name="e_t24" value="1"/></td><td><input type="radio" name="e_t24" value="2"/></td><td><input type="radio" name="e_t24" value="3"/></td><td><input type="radio" name="e_t24" value="4"/></td><td><input type="radio" name="e_t24" value="5"/></td></tr>
+        <tr><td>Geoposicionamiento (GPS) / Georeferenciación</td><td><input type="radio" name="f_t25" value="1"/></td><td><input type="radio" name="f_t25" value="2"/></td><td><input type="radio" name="f_t25" value="3"/></td><td><input type="radio" name="f_t25" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t25" value="5"/></td><td><input type="radio" name="e_t25" value="1"/></td><td><input type="radio" name="e_t25" value="2"/></td><td><input type="radio" name="e_t25" value="3"/></td><td><input type="radio" name="e_t25" value="4"/></td><td><input type="radio" name="e_t25" value="5"/></td></tr>
+        <tr><td>Sistemas de Información Geográfica (GIS)</td><td><input type="radio" name="f_t26" value="1"/></td><td><input type="radio" name="f_t26" value="2"/></td><td><input type="radio" name="f_t26" value="3"/></td><td><input type="radio" name="f_t26" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t26" value="5"/></td><td><input type="radio" name="e_t26" value="1"/></td><td><input type="radio" name="e_t26" value="2"/></td><td><input type="radio" name="e_t26" value="3"/></td><td><input type="radio" name="e_t26" value="4"/></td><td><input type="radio" name="e_t26" value="5"/></td></tr>
+        <tr><td>Sensores digitales de suelo, humedad, otros</td><td><input type="radio" name="f_t27" value="1"/></td><td><input type="radio" name="f_t27" value="2"/></td><td><input type="radio" name="f_t27" value="3"/></td><td><input type="radio" name="f_t27" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t27" value="5"/></td><td><input type="radio" name="e_t27" value="1"/></td><td><input type="radio" name="e_t27" value="2"/></td><td><input type="radio" name="e_t27" value="3"/></td><td><input type="radio" name="e_t27" value="4"/></td><td><input type="radio" name="e_t27" value="5"/></td></tr>
+        <tr><td>Inteligencia Artificial</td><td><input type="radio" name="f_t28" value="1"/></td><td><input type="radio" name="f_t28" value="2"/></td><td><input type="radio" name="f_t28" value="3"/></td><td><input type="radio" name="f_t28" value="4"/></td><td style="border-right:2px solid rgba(15,46,30,0.1)"><input type="radio" name="f_t28" value="5"/></td><td><input type="radio" name="e_t28" value="1"/></td><td><input type="radio" name="e_t28" value="2"/></td><td><input type="radio" name="e_t28" value="3"/></td><td><input type="radio" name="e_t28" value="4"/></td><td><input type="radio" name="e_t28" value="5"/></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">14. Califique el nivel de importancia de estas BARRERAS que enfrentan los productores para adoptar tecnología digital <span class="req">*</span></div>
+    <p class="q-hint">1 = No es una barrera | 5 = Barrera crítica</p>
+    <div style="overflow-x:auto;">
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Barrera</th>
+          <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Costo de la tecnología</td><td><input type="radio" name="b1" value="1"/></td><td><input type="radio" name="b1" value="2"/></td><td><input type="radio" name="b1" value="3"/></td><td><input type="radio" name="b1" value="4"/></td><td><input type="radio" name="b1" value="5"/></td></tr>
+        <tr><td>Falta de conectividad (internet) en su área</td><td><input type="radio" name="b2" value="1"/></td><td><input type="radio" name="b2" value="2"/></td><td><input type="radio" name="b2" value="3"/></td><td><input type="radio" name="b2" value="4"/></td><td><input type="radio" name="b2" value="5"/></td></tr>
+        <tr><td>Falta de habilidades / conocimiento digital</td><td><input type="radio" name="b3" value="1"/></td><td><input type="radio" name="b3" value="2"/></td><td><input type="radio" name="b3" value="3"/></td><td><input type="radio" name="b3" value="4"/></td><td><input type="radio" name="b3" value="5"/></td></tr>
+        <tr><td>Desconfianza en la tecnología</td><td><input type="radio" name="b4" value="1"/></td><td><input type="radio" name="b4" value="2"/></td><td><input type="radio" name="b4" value="3"/></td><td><input type="radio" name="b4" value="4"/></td><td><input type="radio" name="b4" value="5"/></td></tr>
+        <tr><td>No ven el beneficio económico claro</td><td><input type="radio" name="b5" value="1"/></td><td><input type="radio" name="b5" value="2"/></td><td><input type="radio" name="b5" value="3"/></td><td><input type="radio" name="b5" value="4"/></td><td><input type="radio" name="b5" value="5"/></td></tr>
+        <tr><td>Idioma (interfaz no disponible en idioma local)</td><td><input type="radio" name="b6" value="1"/></td><td><input type="radio" name="b6" value="2"/></td><td><input type="radio" name="b6" value="3"/></td><td><input type="radio" name="b6" value="4"/></td><td><input type="radio" name="b6" value="5"/></td></tr>
+        <tr><td>Falta de soporte técnico local</td><td><input type="radio" name="b7" value="1"/></td><td><input type="radio" name="b7" value="2"/></td><td><input type="radio" name="b7" value="3"/></td><td><input type="radio" name="b7" value="4"/></td><td><input type="radio" name="b7" value="5"/></td></tr>
+        <tr><td>Resistencia cultural al cambio</td><td><input type="radio" name="b8" value="1"/></td><td><input type="radio" name="b8" value="2"/></td><td><input type="radio" name="b8" value="3"/></td><td><input type="radio" name="b8" value="4"/></td><td><input type="radio" name="b8" value="5"/></td></tr>
+        <tr><td>Tecnología no adaptada al contexto local</td><td><input type="radio" name="b9" value="1"/></td><td><input type="radio" name="b9" value="2"/></td><td><input type="radio" name="b9" value="3"/></td><td><input type="radio" name="b9" value="4"/></td><td><input type="radio" name="b9" value="5"/></td></tr>
+        <tr><td>Miedo a perder privacidad / datos personales</td><td><input type="radio" name="b10" value="1"/></td><td><input type="radio" name="b10" value="2"/></td><td><input type="radio" name="b10" value="3"/></td><td><input type="radio" name="b10" value="4"/></td><td><input type="radio" name="b10" value="5"/></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">15. ¿Qué factores DESENCADENAN la decisión de un productor de adoptar una nueva tecnología? Ordene por importancia <span class="opt-tag">prioridad</span> <span class="req">*</span></div>
+    <p class="q-hint">Seleccione los 3 más importantes en orden</p>
+    <div class="options-grid">
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Ver una demostración práctica en campo</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Recomendación de un productor conocido y de confianza</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Recomendación de un técnico agrícola</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Acceso a financiamiento o subsidio</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Pérdida significativa de cosecha</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Requisito del comprador / exportador</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Resultados económicos comprobables</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Facilidad de uso de la herramienta</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Capacitación gratuita incluida</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Período de prueba sin costo</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">16. ¿Cuáles son las principales preocupaciones de los productores respecto a invertir en tecnología digital? (explique brevemente) <span class="opt-tag">abierta</span></div>
+    <textarea class="q-textarea" placeholder="Describa las preocupaciones que escucha con más frecuencia de los productores..."></textarea>
+  </div>
+
+
+</div>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN E — CANALES DIGITALES DE LAS ORGANIZACIONES ★ NUEVA
+     ══════════════════════════════════════════════════════════════ -->
+<div class="section-block">
+  <div class="section-header">
+    <div class="section-number">E</div>
+    <div class="section-title-group">
+      <h2>Canales Digitales para Llegar a Productores <span class="new-badge">Nuevo</span></h2>
+      <p>Cómo su organización comunica y promueve tecnología entre productores</p>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">17. ¿Con qué frecuencia y efectividad utiliza su organización los siguientes medios digitales para llegar a los productores agrícolas? <span class="req">*</span></div>
+    <p class="q-hint">Frecuencia: 1 = Nunca · 5 = Siempre &nbsp;|&nbsp; Efectividad: 1 = Poco efectivo · 5 = Muy efectivo</p>
+    <div style="overflow-x:auto;">
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Canal digital</th>
+          <th colspan="5" style="border-right: 2px solid rgba(255,255,255,0.3);">Frecuencia de uso</th>
+          <th colspan="5">Efectividad</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>1</th><th>2</th><th>3</th><th>4</th><th style="border-right: 2px solid rgba(255,255,255,0.3);">5</th>
+          <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>WhatsApp (mensajes directos o grupos)</td><td><input type="radio" name="f_q18r1" value="1"/></td><td><input type="radio" name="f_q18r1" value="2"/></td><td><input type="radio" name="f_q18r1" value="3"/></td><td><input type="radio" name="f_q18r1" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r1" value="5"/></td><td><input type="radio" name="e_q18r1" value="1"/></td><td><input type="radio" name="e_q18r1" value="2"/></td><td><input type="radio" name="e_q18r1" value="3"/></td><td><input type="radio" name="e_q18r1" value="4"/></td><td><input type="radio" name="e_q18r1" value="5"/></td></tr>
+        <tr><td>Facebook (página o grupos)</td><td><input type="radio" name="f_q18r2" value="1"/></td><td><input type="radio" name="f_q18r2" value="2"/></td><td><input type="radio" name="f_q18r2" value="3"/></td><td><input type="radio" name="f_q18r2" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r2" value="5"/></td><td><input type="radio" name="e_q18r2" value="1"/></td><td><input type="radio" name="e_q18r2" value="2"/></td><td><input type="radio" name="e_q18r2" value="3"/></td><td><input type="radio" name="e_q18r2" value="4"/></td><td><input type="radio" name="e_q18r2" value="5"/></td></tr>
+        <tr><td>Instagram</td><td><input type="radio" name="f_q18r3" value="1"/></td><td><input type="radio" name="f_q18r3" value="2"/></td><td><input type="radio" name="f_q18r3" value="3"/></td><td><input type="radio" name="f_q18r3" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r3" value="5"/></td><td><input type="radio" name="e_q18r3" value="1"/></td><td><input type="radio" name="e_q18r3" value="2"/></td><td><input type="radio" name="e_q18r3" value="3"/></td><td><input type="radio" name="e_q18r3" value="4"/></td><td><input type="radio" name="e_q18r3" value="5"/></td></tr>
+        <tr><td>YouTube (videos tutoriales)</td><td><input type="radio" name="f_q18r4" value="1"/></td><td><input type="radio" name="f_q18r4" value="2"/></td><td><input type="radio" name="f_q18r4" value="3"/></td><td><input type="radio" name="f_q18r4" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r4" value="5"/></td><td><input type="radio" name="e_q18r4" value="1"/></td><td><input type="radio" name="e_q18r4" value="2"/></td><td><input type="radio" name="e_q18r4" value="3"/></td><td><input type="radio" name="e_q18r4" value="4"/></td><td><input type="radio" name="e_q18r4" value="5"/></td></tr>
+        <tr><td>TikTok</td><td><input type="radio" name="f_q18r5" value="1"/></td><td><input type="radio" name="f_q18r5" value="2"/></td><td><input type="radio" name="f_q18r5" value="3"/></td><td><input type="radio" name="f_q18r5" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r5" value="5"/></td><td><input type="radio" name="e_q18r5" value="1"/></td><td><input type="radio" name="e_q18r5" value="2"/></td><td><input type="radio" name="e_q18r5" value="3"/></td><td><input type="radio" name="e_q18r5" value="4"/></td><td><input type="radio" name="e_q18r5" value="5"/></td></tr>
+        <tr><td>Sitio web / blog</td><td><input type="radio" name="f_q18r6" value="1"/></td><td><input type="radio" name="f_q18r6" value="2"/></td><td><input type="radio" name="f_q18r6" value="3"/></td><td><input type="radio" name="f_q18r6" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r6" value="5"/></td><td><input type="radio" name="e_q18r6" value="1"/></td><td><input type="radio" name="e_q18r6" value="2"/></td><td><input type="radio" name="e_q18r6" value="3"/></td><td><input type="radio" name="e_q18r6" value="4"/></td><td><input type="radio" name="e_q18r6" value="5"/></td></tr>
+        <tr><td>Correo electrónico / newsletter</td><td><input type="radio" name="f_q18r7" value="1"/></td><td><input type="radio" name="f_q18r7" value="2"/></td><td><input type="radio" name="f_q18r7" value="3"/></td><td><input type="radio" name="f_q18r7" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r7" value="5"/></td><td><input type="radio" name="e_q18r7" value="1"/></td><td><input type="radio" name="e_q18r7" value="2"/></td><td><input type="radio" name="e_q18r7" value="3"/></td><td><input type="radio" name="e_q18r7" value="4"/></td><td><input type="radio" name="e_q18r7" value="5"/></td></tr>
+        <tr><td>SMS</td><td><input type="radio" name="f_q18r8" value="1"/></td><td><input type="radio" name="f_q18r8" value="2"/></td><td><input type="radio" name="f_q18r8" value="3"/></td><td><input type="radio" name="f_q18r8" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r8" value="5"/></td><td><input type="radio" name="e_q18r8" value="1"/></td><td><input type="radio" name="e_q18r8" value="2"/></td><td><input type="radio" name="e_q18r8" value="3"/></td><td><input type="radio" name="e_q18r8" value="4"/></td><td><input type="radio" name="e_q18r8" value="5"/></td></tr>
+        <tr><td>App propia / plataforma digital</td><td><input type="radio" name="f_q18r9" value="1"/></td><td><input type="radio" name="f_q18r9" value="2"/></td><td><input type="radio" name="f_q18r9" value="3"/></td><td><input type="radio" name="f_q18r9" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r9" value="5"/></td><td><input type="radio" name="e_q18r9" value="1"/></td><td><input type="radio" name="e_q18r9" value="2"/></td><td><input type="radio" name="e_q18r9" value="3"/></td><td><input type="radio" name="e_q18r9" value="4"/></td><td><input type="radio" name="e_q18r9" value="5"/></td></tr>
+        <tr><td>Webinars / capacitaciones en línea</td><td><input type="radio" name="f_q18r10" value="1"/></td><td><input type="radio" name="f_q18r10" value="2"/></td><td><input type="radio" name="f_q18r10" value="3"/></td><td><input type="radio" name="f_q18r10" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r10" value="5"/></td><td><input type="radio" name="e_q18r10" value="1"/></td><td><input type="radio" name="e_q18r10" value="2"/></td><td><input type="radio" name="e_q18r10" value="3"/></td><td><input type="radio" name="e_q18r10" value="4"/></td><td><input type="radio" name="e_q18r10" value="5"/></td></tr>
+        <tr><td>Radio / TV digital</td><td><input type="radio" name="f_q18r11" value="1"/></td><td><input type="radio" name="f_q18r11" value="2"/></td><td><input type="radio" name="f_q18r11" value="3"/></td><td><input type="radio" name="f_q18r11" value="4"/></td><td style="border-right: 2px solid rgba(15,46,30,0.1);"><input type="radio" name="f_q18r11" value="5"/></td><td><input type="radio" name="e_q18r11" value="1"/></td><td><input type="radio" name="e_q18r11" value="2"/></td><td><input type="radio" name="e_q18r11" value="3"/></td><td><input type="radio" name="e_q18r11" value="4"/></td><td><input type="radio" name="e_q18r11" value="5"/></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">18. ¿Qué porcentaje de los productores que atiende su empresa u organización utilizan teléfonos inteligentes (smartphones) activamente en las actividades relacionadas con su finca o parcela? <span class="req">*</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="radio" name="smartphone"/><span class="opt-box"></span>Menos del 10%</label>
+      <label class="opt-label"><input type="radio" name="smartphone"/><span class="opt-box"></span>10% – 30%</label>
+      <label class="opt-label"><input type="radio" name="smartphone"/><span class="opt-box"></span>31% – 60%</label>
+      <label class="opt-label"><input type="radio" name="smartphone"/><span class="opt-box"></span>61% – 80%</label>
+      <label class="opt-label"><input type="radio" name="smartphone"/><span class="opt-box"></span>Más del 80%</label>
+      <label class="opt-label"><input type="radio" name="smartphone"/><span class="opt-box"></span>No tengo datos</label>
+    </div>
+  </div>
+
+
+
+  <div class="q-card">
+    <div class="q-label">19. ¿Cuáles son los principales desafíos para promover la adopción de herramientas digitales entre productores? <span class="opt-tag">múltiple</span> <span class="req">*</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Falta de acceso a internet en áreas rurales</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Bajo nivel de alfabetización digital</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Idioma / barreras lingüísticas</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Resistencia o desconfianza cultural</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Costo percibido demasiado alto</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Falta de evidencia local de retorno de inversión</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Dificultad para dar soporte post-adopción</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Nuestra organización no tiene capacidad de escala</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Fragmentación: demasiados actores sin coordinación</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Falta de políticas públicas de apoyo</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">20. ¿Qué tipo de contenido digital resulta más efectivo para educar a productores sobre nuevas tecnologías? <span class="req">*</span></div>
+    <div class="options-grid">
+      <label class="opt-label"><input type="radio" name="content"/><span class="opt-box"></span>Videos cortos (menos de 3 min) con casos de éxito locales</label>
+      <label class="opt-label"><input type="radio" name="content"/><span class="opt-box"></span>Tutoriales paso a paso en video</label>
+      <label class="opt-label"><input type="radio" name="content"/><span class="opt-box"></span>Infografías simples con beneficios claros</label>
+      <label class="opt-label"><input type="radio" name="content"/><span class="opt-box"></span>Mensajes de voz / audio (más accesible para bajo nivel lecto-escritura)</label>
+      <label class="opt-label"><input type="radio" name="content"/><span class="opt-box"></span>Webinars / sesiones en vivo con preguntas</label>
+      <label class="opt-label"><input type="radio" name="content"/><span class="opt-box"></span>Documentos / manuales PDF</label>
+      <label class="opt-label"><input type="radio" name="content"/><span class="opt-box"></span>Demostraciones presenciales (lo digital no funciona aquí)</label>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN F — PLATAFORMA DIGITAL DEL ECOSISTEMA ★ NUEVA CENTRAL
+     ══════════════════════════════════════════════════════════════ -->
+<div class="section-block">
+  <div class="section-header">
+    <div class="section-number">F</div>
+    <div class="section-title-group">
+      <h2>Plataforma Digital del Ecosistema AgTech <span class="new-badge">Nuevo</span></h2>
+      <p>Valorando el potencial de una plataforma que conecte a todos los actores</p>
+    </div>
+  </div>
+
+  <div class="q-card" style="background: linear-gradient(135deg, rgba(26,122,74,0.05), rgba(46,173,106,0.05)); border-color: rgba(46,173,106,0.25);">
+    <div style="font-size:13px; color: var(--leaf); font-weight:600; margin-bottom:8px;">💡 Contexto</div>
+    <div style="font-size:13px; color: var(--text); line-height:1.6;">Imagine una <strong>plataforma digital integrada</strong> que conecte a proveedores de tecnología agrícola, productores, técnicos, cooperativas, compradores y financiadores en un solo espacio. Podría incluir un directorio de soluciones, casos de éxito, capacitación, acceso a financiamiento y herramientas de diagnóstico.</div>
+  </div>
+
+
+
+  <div class="q-card">
+    <div class="q-label">21. ¿Cuáles funcionalidades serían más valiosas para su organización en esta plataforma? <span class="opt-tag">múltiple</span> <span class="req">*</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Directorio de proveedores de tecnología</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Biblioteca de casos de éxito locales</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Herramienta de diagnóstico para productores</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Conexión con fuentes de financiamiento</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Plataforma de formación / e-learning</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Foro y comunidad de práctica</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Dashboard de datos e indicadores del ecosistema</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Comparador de soluciones tecnológicas</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Alertas y noticias del sector</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Conexión con compradores / mercados</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Información geográfica (Geoportal MAGA)</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Información climática</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Herramientas de trazabilidad</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Cuadernos digitales (costos, rentabilidad)</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">22. ¿Qué funcionalidades serían más valiosas para los PRODUCTORES que usted atiende? <span class="opt-tag">múltiple</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Buscador simple de soluciones ("¿qué app me conviene?")</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Videos cortos de casos de éxito en Guatemala</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Contacto directo con técnico o proveedor</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Acceso a crédito o subsidio para tecnología</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Precios actualizados de mercado</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Alertas climáticas y de plagas</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Capacitaciones en su idioma local</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Foro donde preguntar a otros productores</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Información geográfica (Geoportal MAGA)</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Información climática</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Herramientas de trazabilidad</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Cuadernos digitales (costos, rentabilidad)</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Georeferenciación</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">23. ¿Estaría su organización dispuesta a registrarse y tener un perfil activo en esta plataforma? <span class="req">*</span></div>
+    <div class="options-grid">
+      <label class="opt-label"><input type="radio" name="register"/><span class="opt-box"></span>Sí, definitivamente</label>
+      <label class="opt-label"><input type="radio" name="register"/><span class="opt-box"></span>Probablemente sí, dependiendo del modelo</label>
+      <label class="opt-label"><input type="radio" name="register"/><span class="opt-box"></span>Incierto, necesito más información</label>
+      <label class="opt-label"><input type="radio" name="register"/><span class="opt-box"></span>Probablemente no</label>
+      <label class="opt-label"><input type="radio" name="register"/><span class="opt-box"></span>No, no es relevante para nosotros</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">24. ¿Bajo qué modelo de costo su organización estaría dispuesta a participar en esta plataforma? <span class="req">*</span></div>
+    <div class="options-grid">
+      <label class="opt-label"><input type="radio" name="model"/><span class="opt-box"></span>Completamente gratuita (financiada por donantes o gobierno)</label>
+      <label class="opt-label"><input type="radio" name="model"/><span class="opt-box"></span>Freemium (básico gratis, funciones avanzadas de pago)</label>
+      <label class="opt-label"><input type="radio" name="model"/><span class="opt-box"></span>Suscripción anual accesible (menos de US$200/año)</label>
+      <label class="opt-label"><input type="radio" name="model"/><span class="opt-box"></span>Pago por servicio específico usado</label>
+      <label class="opt-label"><input type="radio" name="model"/><span class="opt-box"></span>Modelo cooperativo (los miembros co-financian)</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">25. ¿Quién debería liderar el desarrollo y gestión de esta plataforma? <span class="req">*</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="radio" name="leader"/><span class="opt-box"></span>Gobierno (MAGA, SENACYT)</label>
+      <label class="opt-label"><input type="radio" name="leader"/><span class="opt-box"></span>Sector privado (empresa tecnológica)</label>
+      <label class="opt-label"><input type="radio" name="leader"/><span class="opt-box"></span>Asociación público-privada</label>
+      <label class="opt-label"><input type="radio" name="leader"/><span class="opt-box"></span>Cooperación internacional</label>
+      <label class="opt-label"><input type="radio" name="leader"/><span class="opt-box"></span>Consorcio de organizaciones del sector</label>
+      <label class="opt-label"><input type="radio" name="leader"/><span class="opt-box"></span>Institución académica (USAC u otra)</label>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">26. ¿Cuáles son los MAYORES riesgos que ve en una plataforma digital de este tipo? <span class="opt-tag">múltiple</span></div>
+    <div class="options-grid cols-2">
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Que no se adopte por falta de interés</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Que sea difícil de usar para productores</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Que los datos no sean confiables o actualizados</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Problemas de privacidad y seguridad de datos</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Que una entidad la controle con fines comerciales</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Falta de sostenibilidad financiera</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Que duplique esfuerzos de lo que ya existe</label>
+      <label class="opt-label"><input type="checkbox"/><span class="opt-box sq"></span>Baja conectividad en zonas rurales</label>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SECCIÓN G — PERSPECTIVA FUTURA
+     ══════════════════════════════════════════════════════════════ -->
+<div class="section-block">
+  <div class="section-header">
+    <div class="section-number">G</div>
+    <div class="section-title-group">
+      <h2>Perspectiva Futura y Datos Cualitativos</h2>
+      <p>Sus opiniones nos ayudan a diseñar mejores intervenciones</p>
+    </div>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">27. En los próximos 2 años, ¿cuál tecnología cree que tendrá el mayor impacto en la agricultura guatemalteca? <span class="opt-tag">abierta</span></div>
+    <input class="q-input" type="text" placeholder="Ej: IA para predicción de plagas, drones de bajo costo, etc."/>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">28. ¿Qué experiencia exitosa de adopción digital entre productores puede compartir? (caso concreto) <span class="opt-tag">abierta</span></div>
+    <textarea class="q-textarea" placeholder="Comparta un caso real donde la tecnología hizo una diferencia significativa para un productor o grupo..."></textarea>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">29. ¿Existe alguna tecnología que sus productores hayan RECHAZADO o abandonado? ¿Por qué? <span class="opt-tag">abierta</span></div>
+    <textarea class="q-textarea" placeholder="Comparta si hubo adopciones fallidas y qué las provocó..."></textarea>
+  </div>
+
+  <div class="q-card">
+    <div class="q-label">30. En su opinión, ¿qué acción concreta podría acelerar más la adopción digital en el sector agrícola guatemalteco? <span class="opt-tag">abierta</span></div>
+    <textarea class="q-textarea" placeholder="Su perspectiva es muy valiosa..."></textarea>
+  </div>
+
+
+</div>
+
+<!-- SUBMIT -->
+<div class="submit-section">
+  <div style="max-width:600px; margin:0 auto 32px; padding:28px 32px; background:var(--cream); border-radius:16px; border-left:4px solid var(--sprout); text-align:left;">
+    <div style="font-size:22px; margin-bottom:12px;">🌱</div>
+    <p style="font-family:'Roboto',sans-serif; font-size:15px; font-weight:500; color:var(--soil); margin-bottom:10px;">¡Gracias por completar esta encuesta!</p>
+    <p style="font-family:'Roboto',sans-serif; font-size:13px; color:var(--subtle); line-height:1.7; margin:0;">Su tiempo y conocimiento son fundamentales para el diseño de la <strong style="color:var(--leaf);">Plataforma Digital para la Agricultura Exportadora de AGEXPORT</strong>. Sus respuestas nos ayudarán a construir una herramienta que responda a las necesidades reales del sector y fortalezca la competitividad de los productores guatemaltecos en los mercados internacionales.</p>
+  </div>
+  <button type="submit" class="btn-submit">Enviar Encuesta →</button>
+  <p class="submit-note">Sus respuestas son confidenciales y se utilizarán únicamente para análisis del ecosistema agtech guatemalteco.</p>
+</div>
+
+</form>
+
+<!-- Pantalla de confirmación -->
+<div class="confirmation-screen" id="confirmationScreen">
+  <div class="confirmation-icon">🌱</div>
+  <div class="confirmation-title">¡Encuesta completada!</div>
+  <p class="confirmation-text">
+    Muchas gracias por su tiempo y por compartir su conocimiento.<br/>
+    Sus respuestas han sido registradas exitosamente.
+  </p>
+  <p class="confirmation-text">
+    Su aporte es fundamental para el diseño de la
+    <strong style="color:var(--leaf);">Plataforma Digital para la Agricultura Exportadora de AGEXPORT</strong>,
+    una herramienta que buscará fortalecer la competitividad de los productores guatemaltecos
+    en los mercados internacionales.
+  </p>
+  <div class="confirmation-highlight">
+    Si tiene preguntas o comentarios adicionales, puede escribirnos a:<br/>
+    <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1f7e786d767c70737e5f7e787a676f706d6b31706d7831786b">[email&#160;protected]</a></strong>
+  </div>
+</div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Progress tracking
+function updateProgress() {
+  const form = document.getElementById('surveyForm');
+  const inputs = form.querySelectorAll('input[required], select[required]');
+  let answered = 0;
+  const seen = new Set();
+  inputs.forEach(i => {
+    const name = i.name || i.id || Math.random();
+    if (seen.has(name)) return;
+    seen.add(name);
+    if ((i.type === 'radio' || i.type === 'checkbox') && form.querySelector(`[name="${i.name}"]:checked`)) answered++;
+    else if (i.type !== 'radio' && i.type !== 'checkbox' && i.value.trim()) answered++;
+  });
+  const total = 35;
+  const pct = Math.min((answered / 20) * 100, 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').style.color = pct > 50 ? '#2EAD6A' : 'rgba(240,247,243,0.7)';
+
+  // Count filled cards
+  const cards = form.querySelectorAll('.q-card');
+  let filledCount = 0;
+  cards.forEach(card => {
+    const allInputs = card.querySelectorAll('input, textarea, select');
+    const hasVal = Array.from(allInputs).some(el => {
+      if (el.type === 'radio' || el.type === 'checkbox') return el.checked;
+      return el.value && el.value.trim() !== '';
+    });
+    if (hasVal) filledCount++;
+  });
+  document.getElementById('progressLabel').textContent = filledCount + ' / ' + total;
+}
+
+// Municipios por departamento
+const municipiosPorDepto = {
+  "Alta Verapaz": ["Cobán","Cahabón","Chisec","Fray Bartolomé de las Casas","Lanquín","Panzós","Raxruhá","San Cristóbal Verapaz","San Juan Chamelco","San Pedro Carchá","Santa Catalina La Tinta","Santa Cruz Verapaz","Santa María Cahabón","Senahú","Tamahú","Tactic","Tucurú"],
+  "Baja Verapaz": ["Salamá","Cubulco","Granados","Purulhá","Rabinal","San Jerónimo","San Miguel Chicaj","Santa Cruz el Chol"],
+  "Chimaltenango": ["Chimaltenango","Acatenango","El Tejar","Parramos","Patzicía","Patzún","Pochuta","San Andrés Itzapa","San José Poaquil","San Juan Comalapa","San Martín Jilotepeque","Santa Apolonia","Santa Cruz Balanyá","Tecpán Guatemala","Yepocapa","Zaragoza"],
+  "Chiquimula": ["Chiquimula","Camotán","Concepción Las Minas","Esquipulas","Ipala","Jocotán","Olopa","Quezaltepeque","San Jacinto","San José La Arada","San Juan Ermita"],
+  "El Progreso": ["Guastatoya","El Jícaro","Morazán","San Agustín Acasaguastlán","San Antonio La Paz","San Cristóbal Acasaguastlán","Sanarate","Sansare"],
+  "Escuintla": ["Escuintla","Guanagazapa","Iztapa","La Democracia","La Gomera","Masagua","Nueva Concepción","Palín","San José","San Vicente Pacaya","Santa Lucía Cotzumalguapa","Siquinalá","Tiquisate"],
+  "Guatemala": ["Guatemala","Amatitlán","Chinautla","Chuarrancho","Fraijanes","Mixco","Palencia","Petapa","San José del Golfo","San José Pinula","San Juan Sacatepéquez","San Pedro Ayampuc","San Pedro Sacatepéquez","San Raymundo","Santa Catarina Pinula","Villa Canales","Villa Nueva"],
+  "Huehuetenango": ["Huehuetenango","Aguacatán","Chiantla","Colotenango","Concepción Huista","Cuilco","Jacaltenango","La Democracia","La Libertad","Malacatancito","Nentón","San Antonio Huista","San Gaspar Ixchil","San Ildefonso Ixtahuacán","San Juan Atitán","San Juan Ixcoy","San Mateo Ixtatán","San Miguel Acatán","San Pedro Necta","San Rafael La Independencia","San Rafael Petzal","San Sebastián Coatán","San Sebastián Huehuetenango","Santa Ana Huista","Santa Bárbara","Santa Cruz Barillas","Santa Eulalia","Santiago Chimaltenango","Tectitán","Todos Santos Cuchumatán","Unión Cantinil"],
+  "Izabal": ["Puerto Barrios","El Estor","Livingston","Los Amates","Morales"],
+  "Jalapa": ["Jalapa","Mataquescuintla","Monjas","San Carlos Alzatate","San Luis Jilotepeque","San Manuel Chaparrón","San Pedro Pinula"],
+  "Jutiapa": ["Jutiapa","Agua Blanca","Asunción Mita","Atescatempa","Comapa","Conguaco","El Adelanto","El Progreso","Jalpatagua","Jerez","Moyuta","Pasaco","Quesada","San José Acatempa","Santa Catarina Mita","Yupiltepeque","Zapotitlán"],
+  "Petén": ["Flores","Dolores","El Chal","La Libertad","Las Cruces","Melchor de Mencos","Poptún","San Andrés","San Benito","San Francisco","San José","San Luis","Santa Ana","Sayaxché"],
+  "Quetzaltenango": ["Quetzaltenango","Almolonga","Cantel","Coatepeque","Colomba Costa Cuca","Concepción Chiquirichapa","El Palmar","Flores Costa Cuca","Génova","Huitán","La Esperanza","Nuevo San Carlos","Olintepeque","Ostuncalco","Palestina de Los Altos","Salcajá","San Carlos Sija","San Francisco La Unión","San Juan Ostuncalco","San Marcos Sacatepéquez","San Mateo","San Miguel Sigüilá","Sibilia","Zunil"],
+  "Quiché": ["Santa Cruz del Quiché","Canillá","Chicamán","Chiché","Chichicastenango","Chinique","Cunén","Ixcán","Joyabaj","Nebaj","Pachalum","Patzité","Sacapulas","San Andrés Sajcabajá","San Antonio Ilotenango","San Bartolomé Jocotenango","San Juan Cotzal","San Pedro Jocopilas","Uspantán","Zacualpa"],
+  "Retalhuleu": ["Retalhuleu","Champerico","El Asintal","Nuevo San Carlos","San Andrés Villa Seca","San Felipe","San Martín Zapotitlán","San Sebastián","Santa Cruz Muluá"],
+  "Sacatepéquez": ["Antigua Guatemala","Alotenango","Ciudad Vieja","Jocotenango","Magdalena Milpas Altas","Pastores","San Antonio Aguas Calientes","San Bartolomé Milpas Altas","San Lucas Sacatepéquez","San Miguel Dueñas","San Pedro Las Huertas","Santa Catarina Barahona","Santa Lucía Milpas Altas","Santa María de Jesús","Santiago Sacatepéquez","Santo Domingo Xenacoj","Sumpango"],
+  "San Marcos": ["San Marcos","Ayutla","Catarina","Comitancillo","Concepción Tutuapa","El Quetzal","El Rodeo","El Tumbador","Esquipulas Palo Gordo","Ixchiguán","La Blanca","La Reforma","Malacatán","Nuevo Progreso","Ocos","Pajapita","Río Blanco","Sacatepéquez","San Antonio Sacatepéquez","San Cristóbal Cucho","San José Ojetenam","San Lorenzo","San Miguel Ixtahuacán","San Pablo","San Pedro Sacatepéquez","San Rafael Pie de la Cuesta","Sibinal","Sipacapa","Tacaná","Tajumulco","Tejutla"],
+  "Santa Rosa": ["Cuilapa","Barberena","Casillas","Chiquimulilla","Guazacapán","Nueva Santa Rosa","Oratorio","Pueblo Nuevo Viñas","San Juan Tecuaco","San Rafael Las Flores","Santa Cruz Naranjo","Santa María Ixhuatán","Santa Rosa de Lima","Taxisco"],
+  "Sololá": ["Sololá","Concepción","Nahualá","Panajachel","San Andrés Semetabaj","San Antonio Palopó","San Juan La Laguna","San Lucas Tolimán","San Marcos La Laguna","San Pablo La Laguna","San Pedro La Laguna","Santa Catarina Ixtahuacán","Santa Catarina Palopó","Santa Clara La Laguna","Santa Cruz La Laguna","Santa Lucía Utatlán","Santa María Visitación","Santiago Atitlán","Tzununá"],
+  "Suchitepéquez": ["Mazatenango","Cuyotenango","Patulul","Pueblo Nuevo","Río Bravo","Samayac","San Antonio Suchitepéquez","San Bernardino","San Francisco Zapotitlán","San Gabriel","San José El Ídolo","San Juan Bautista","San Lorenzo","San Miguel Panán","San Pablo Jocopilas","Santa Bárbara","Santo Domingo Suchitepéquez","Santo Tomás La Unión","Zunilito"],
+  "Totonicapán": ["Totonicapán","Momostenango","San Andrés Xecul","San Bartolo","San Cristóbal Totonicapán","San Francisco El Alto","Santa Lucía La Reforma","Santa María Chiquimula"],
+  "Zacapa": ["Zacapa","Cabañas","Estanzuela","Gualán","Huité","La Unión","Río Hondo","San Diego","San Jorge","Teculután","Usumatlán"],
+};
+
+const deptoSelect = document.getElementById('deptoSelect');
+const municipioSelect = document.getElementById('municipioSelect');
+
+deptoSelect.addEventListener('change', function() {
+  const depto = this.value;
+  municipioSelect.innerHTML = '';
+  if (!depto || depto === 'A nivel nacional') {
+    municipioSelect.innerHTML = '<option value="">— No aplica —</option>';
+  } else {
+    municipioSelect.innerHTML = '<option value="">Seleccione un municipio</option>';
+    (municipiosPorDepto[depto] || []).forEach(m => {
+      const opt = document.createElement('option');
+      opt.value = m; opt.textContent = m;
+      municipioSelect.appendChild(opt);
+    });
+  }
+});
+
+// Show contact card when interview is selected yes/maybe
+document.querySelectorAll('[name="interview"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const val = document.querySelector('[name="interview"]:checked')?.value;
+    document.getElementById('contactCard').style.display = (val && val !== 'No por ahora') ? 'block' : 'none';
+  });
+});
+
+// Smooth scroll and progress on any change
+document.getElementById('surveyForm').addEventListener('change', updateProgress);
+document.getElementById('surveyForm').addEventListener('input', updateProgress);
+
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3IQpPgo-QfUPQ0B3Y4-WgyrJbw95ffmr3FP-IDtwBYqAeWjvPf3gFRdt9hiuyX3Kn3w/exec";
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.querySelector('.btn-submit');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  // Recopilar todos los datos del formulario
+  const form = document.getElementById('surveyForm');
+  const formData = new FormData(form);
+  const data = {};
+
+  // Campos de texto e inputs normales
+  for (let [key, value] of formData.entries()) {
+    if (data[key]) {
+      // Si ya existe (checkboxes múltiples), concatenar
+      data[key] = data[key] + ', ' + value;
+    } else {
+      data[key] = value;
+    }
+  }
+
+  // Agregar timestamp
+  data['Timestamp'] = new Date().toLocaleString('es-GT');
+
+  // Enviar a Google Sheets via Apps Script
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    // Ocultar formulario y mostrar pantalla de confirmación
+    document.getElementById('surveyForm').style.display = 'none';
+    const confirmation = document.getElementById('confirmationScreen');
+    confirmation.style.display = 'flex';
+ 
