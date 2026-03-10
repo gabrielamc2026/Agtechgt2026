@@ -1269,7 +1269,7 @@ document.querySelectorAll('[name="interview"]').forEach(r => {
 document.getElementById('surveyForm').addEventListener('change', updateProgress);
 document.getElementById('surveyForm').addEventListener('input', updateProgress);
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3IQpPgo-QfUPQ0B3Y4-WgyrJbw95ffmr3FP-IDtwBYqAeWjvPf3gFRdt9hiuyX3Kn3w/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-YqMd5YKnxUUmP5WQ23dlk8TxJkfGzfYkvGpW_nEFwJ_jddF61tLmidJUELz2AIZk/exec";
 
 function handleSubmit(e) {
   e.preventDefault();
@@ -1295,34 +1295,25 @@ function handleSubmit(e) {
   // Agregar timestamp
   data['Timestamp'] = new Date().toLocaleString('es-GT');
 
- // Enviar a Google Sheets via Apps Script
-fetch(SCRIPT_URL, {
-  method: 'POST',
-  mode: 'no-cors',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(data)
-})
-.then(() => {
-  // Ocultar formulario y mostrar pantalla de confirmación
-  document.getElementById('surveyForm').style.display = 'none';
-  const confirmation = document.getElementById('confirmationScreen');
-  confirmation.style.display = 'flex';
-})
-.catch((error) => {
-  console.error('Error:', error);
-  alert('Error al enviar la encuesta. Por favor, intente de nuevo.');
-  btn.textContent = 'Enviar Encuesta';
-  btn.disabled = false;
-});
-</form>
-
-<!-- CONFIRMATION SCREEN -->
-<div class="confirmation-screen" id="confirmationScreen">
-  <div class="confirmation-icon">✓</div>
-  <h2 class="confirmation-title">¡Gracias por tu respuesta!</h2>
-  <p class="confirmation-text">Tu encuesta ha sido enviada correctamente.</p>
-  <p class="confirmation-text">Tus respuestas se han guardado en nuestra base de datos.</p>
-  <div class="confirmation-highlight">
-    Recibiremos tus datos y los analizaremos para mejorar nuestras soluciones tecnológicas para la agricultura.
-  </div>
-</div>
+  // Enviar a Google Sheets via Apps Script
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    document.getElementById('surveyForm').style.display = 'none';
+    const confirmation = document.getElementById('confirmationScreen');
+    confirmation.style.display = 'flex';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  })
+  .catch(() => {
+    btn.textContent = 'Error al enviar — intente de nuevo';
+    btn.style.background = '#c0392b';
+    btn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>
