@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="Diagrama: círculo grande de Comercio digital que se intersecta con un círculo de Facilitación de comercio">
+  <rect width="1000" height="700" fill="#F6F4EE"/>
+  <circle cx="390" cy="350" r="300" fill="#2E6B57" fill-opacity="0.55" stroke="#16302A" stroke-width="3"/>
+  <circle cx="720" cy="350" r="190" fill="#C9822B" fill-opacity="0.6" stroke="#7A4510" stroke-width="3"/>
+  <text x="290" y="362" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#16302A">Comercio digital</text>
+  <text x="790" y="342" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#16302A">Facilitación</text>
+  <text x="790" y="380" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#16302A">de comercio</text>
+</svg>
